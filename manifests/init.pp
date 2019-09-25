@@ -1,7 +1,7 @@
 class buildtools {
-  case $operatingsystem {
-   'Centos'              : { include buildtools::centos }
-   '^/(Debian|Ubuntu)$/' : { include buildtools::ubuntu }
-   default               : { include buildtools::packageerror}
+  case $facts['os']['family'] {
+   'Redhat' : { include buildtools::centos }
+   'Debian' : { include buildtools::ubuntu }
+   default  : { include buildtools::packageerror }
   }
 }

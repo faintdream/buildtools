@@ -1,6 +1,7 @@
 class buildtools::centos {
-  notice("CENTOS MACHINE")
-  package { ["make" ,"autoconf" ,"gcc", "glibc"]:
-    ensure => latest,
+  exec { " Install Development Tools ":
+    command  => 'yum groupinstall "Development tools" -y',
+    path => '/bin',
+
   }
 }
